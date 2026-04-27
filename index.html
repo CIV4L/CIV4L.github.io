@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIVALx STORE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Orbitron',sans-serif;
+    background:#050816;
+    color:white;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 40px;
+    background:#0a0f2a;
+    border-bottom:1px solid cyan;
+}
+
+.logo{
+    color:cyan;
+    font-size:24px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:60px;
+    color:cyan;
+    text-shadow:0 0 20px cyan;
+}
+
+.hero p{
+    margin-top:15px;
+    opacity:.7;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    border:1px solid cyan;
+    color:cyan;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:cyan;
+    color:black;
+    box-shadow:0 0 20px cyan;
+}
+
+/* PRODUCTS */
+.products{
+    padding:60px 20px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#0a0f2a;
+    border:1px solid cyan;
+    padding:25px;
+    width:260px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px cyan;
+}
+
+.price{
+    margin:10px 0;
+    color:cyan;
+}
+
+/* FEATURES */
+.features{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.features h2{
+    color:cyan;
+    margin-bottom:20px;
+}
+
+.features p{
+    opacity:.7;
+    max-width:600px;
+    margin:auto;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">CIVALx</div>
+    <div>
+        <a href="#products">Store</a>
+        <a href="#features">Features</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>LEVEL UP YOUR GAME</h1>
+    <p>Premium Packs • Smooth Gameplay • Better Headshots</p>
+    <a href="#products" class="btn">Explore Store</a>
+</section>
+
+<section id="products" class="products">
+
+    <div class="card">
+        <h2>Deadzone Pack</h2>
+        <p class="price">700 PKR</p>
+        <a href="#" class="btn">Buy</a>
+    </div>
+
+    <div class="card">
+        <h2>Prime Pack</h2>
+        <p class="price">All-in-One</p>
+        <a href="#" class="btn">Buy</a>
+    </div>
+
+    <div class="card">
+        <h2>Paid Emulator</h2>
+        <p class="price">Custom Build</p>
+        <a href="#" class="btn">Buy</a>
+    </div>
+
+</section>
+
+<section id="features" class="features">
+    <h2>WHY CHOOSE CIVALx?</h2>
+    <p>
+        Optimized configs, smoother gameplay, reduced delay, and better control.
+        Built for serious players who want real performance gains.
+    </p>
+</section>
+
+<footer>
+    © 2026 CIVALx STORE
+</footer>
+
+</body>
+</html>
