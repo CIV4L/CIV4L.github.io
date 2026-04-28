@@ -3,66 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIVALx Store</title>
+<title>CIV4L ELITE STORE</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
-    font-family:'Orbitron', sans-serif;
-    background: radial-gradient(circle at top, #0a0f2a, #050816);
+    font-family:'Orbitron',sans-serif;
+    background:black;
     color:white;
     overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* 🔥 BACKGROUND ANIMATION */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:linear-gradient(270deg, red, blue, purple, cyan, green);
+    background-size:800% 800%;
+    animation:bgMove 25s ease infinite;
+    opacity:0.12;
+    z-index:-1;
+}
+
+@keyframes bgMove{
+    0%{background-position:0%}
+    50%{background-position:100%}
+    100%{background-position:0%}
+}
+
+/* NAV */
 nav{
+    position:fixed;
+    width:100%;
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-    background:rgba(10,15,42,0.8);
-    backdrop-filter: blur(10px);
-    border-bottom:1px solid rgba(0,255,255,0.2);
+    padding:20px 40px;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid cyan;
+    z-index:1000;
 }
 
 .logo{
     font-size:26px;
-    color:#00eaff;
-    text-shadow:0 0 10px #00eaff;
+    color:cyan;
+    text-shadow:0 0 15px cyan;
 }
 
 nav a{
     color:white;
-    margin-left:25px;
+    margin-left:20px;
     text-decoration:none;
-    position:relative;
 }
 
-nav a::after{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:2px;
-    background:#00eaff;
-    left:0;
-    bottom:-5px;
-    transition:.3s;
-}
-
-nav a:hover::after{
-    width:100%;
-}
+nav a:hover{color:cyan;}
 
 /* HERO */
 .hero{
-    height:90vh;
+    height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -72,129 +75,96 @@ nav a:hover::after{
 
 .hero h1{
     font-size:70px;
-    color:#00eaff;
-    text-shadow:0 0 30px #00eaff;
+    text-shadow:0 0 20px red,0 0 40px cyan;
 }
 
-.hero p{
-    margin-top:15px;
-    opacity:.7;
-}
-
+/* BUTTON */
 .btn{
-    margin-top:25px;
-    padding:14px 30px;
-    border:1px solid #00eaff;
-    color:#00eaff;
-    text-decoration:none;
+    margin-top:20px;
+    padding:12px 30px;
+    border:1px solid cyan;
+    color:cyan;
+    cursor:pointer;
     transition:.3s;
 }
 
 .btn:hover{
-    background:#00eaff;
+    background:cyan;
     color:black;
-    box-shadow:0 0 25px #00eaff;
+    box-shadow:0 0 25px cyan;
 }
 
-/* SECTION TITLE */
-.section-title{
+/* SECTIONS */
+.section{
+    padding:100px 20px;
     text-align:center;
-    margin:80px 0 40px;
-    font-size:30px;
-    color:#00eaff;
 }
 
 /* PRODUCTS */
 .products{
     display:flex;
-    justify-content:center;
     flex-wrap:wrap;
-    gap:30px;
-    padding:0 40px;
+    justify-content:center;
+    gap:25px;
 }
 
 .card{
     width:260px;
-    background:rgba(10,15,42,0.8);
-    border:1px solid rgba(0,255,255,0.3);
     padding:25px;
-    text-align:center;
-    transition:.4s;
-    position:relative;
-    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.2);
+    opacity:0;
+    transform:translateY(40px);
+    transition:.6s;
 }
 
-.card::before{
-    content:"";
-    position:absolute;
-    width:200%;
-    height:200%;
-    background:linear-gradient(120deg, transparent, rgba(0,255,255,0.3), transparent);
-    transform:rotate(45deg);
-    top:-100%;
-    left:-100%;
-    transition:.5s;
-}
-
-.card:hover::before{
-    top:100%;
-    left:100%;
+.card.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 30px rgba(0,255,255,0.4);
-}
-
-.price{
-    color:#00eaff;
-    margin:10px 0;
+    transform:scale(1.05);
+    box-shadow:0 0 30px cyan;
 }
 
 /* FEATURES */
-.features{
-    padding:80px 20px;
-    text-align:center;
-}
-
-.features-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-    margin-top:40px;
-}
-
-.feature-box{
+.feature{
     width:250px;
     padding:20px;
-    border:1px solid rgba(0,255,255,0.2);
-    transition:.3s;
+    border:1px solid rgba(255,255,255,0.2);
+    opacity:0;
+    transform:translateY(40px);
+    transition:.6s;
 }
 
-.feature-box:hover{
-    box-shadow:0 0 20px #00eaff;
+.feature.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.feature-box h3{
-    color:#00eaff;
-    margin-bottom:10px;
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    padding:30px;
+    border:1px solid cyan;
+    background:black;
+    text-align:center;
 }
 
 /* FOOTER */
 footer{
-    margin-top:80px;
-    padding:30px;
     text-align:center;
+    padding:30px;
     opacity:.6;
-}
-
-/* SCROLLBAR */
-::-webkit-scrollbar{
-    width:6px;
-}
-::-webkit-scrollbar-thumb{
-    background:#00eaff;
 }
 </style>
 </head>
@@ -202,7 +172,7 @@ footer{
 <body>
 
 <nav>
-    <div class="logo">CIVALx</div>
+    <div class="logo">CIV4L ELITE</div>
     <div>
         <a href="#home">Home</a>
         <a href="#store">Store</a>
@@ -211,57 +181,95 @@ footer{
 </nav>
 
 <section class="hero" id="home">
-    <h1>CIVALx STORE</h1>
-    <p>Premium Packs • Better Aim • Smooth Gameplay</p>
-    <a href="#store" class="btn">Enter Store</a>
+    <h1>CIV4L ELITE STORE</h1>
+    <p>Neon Powered • Flame Optimized • Elite Performance</p>
+    <div class="btn" onclick="goStore()">ENTER</div>
 </section>
 
-<h2 class="section-title" id="store">STORE</h2>
+<section class="section" id="store">
+    <h2>STORE</h2>
 
-<section class="products">
+    <div class="products">
 
-    <div class="card">
-        <h2>Deadzone Pack</h2>
-        <p class="price">700 PKR</p>
-        <a href="#" class="btn">Buy Now</a>
+        <div class="card">
+            <h3>Deadzone Pack</h3>
+            <p>700 PKR</p>
+            <div class="btn" onclick="buy('Deadzone Pack')">Buy</div>
+        </div>
+
+        <div class="card">
+            <h3>Prime Pack</h3>
+            <p>All-in-One</p>
+            <div class="btn" onclick="buy('Prime Pack')">Buy</div>
+        </div>
+
+        <div class="card">
+            <h3>Reg Pack</h3>
+            <p>Pro Aim</p>
+            <div class="btn" onclick="buy('Reg Pack')">Buy</div>
+        </div>
+
+        <div class="card">
+            <h3>Paid Emulator</h3>
+            <p>Custom</p>
+            <div class="btn" onclick="buy('Emulator')">Buy</div>
+        </div>
+
     </div>
-
-    <div class="card">
-        <h2>Prime Pack</h2>
-        <p class="price">All-in-One</p>
-        <a href="#" class="btn">Buy Now</a>
-    </div>
-
-    <div class="card">
-        <h2>Paid Emulator</h2>
-        <p class="price">Custom Build</p>
-        <a href="#" class="btn">Buy Now</a>
-    </div>
-
 </section>
 
-<h2 class="section-title" id="features">FEATURES</h2>
+<section class="section" id="features">
+    <h2>FEATURES</h2>
 
-<section class="features">
-    <div class="features-grid">
-        <div class="feature-box">
-            <h3>Low Delay</h3>
-            <p>Smoother gameplay with optimized configs</p>
-        </div>
-        <div class="feature-box">
-            <h3>Better Aim</h3>
-            <p>Improved control and accuracy</p>
-        </div>
-        <div class="feature-box">
-            <h3>High FPS</h3>
-            <p>Stable performance boost</p>
-        </div>
+    <div class="products">
+        <div class="feature">🔥 Flame Boost</div>
+        <div class="feature">⚡ Neon Aim</div>
+        <div class="feature">🚀 FPS Stability</div>
     </div>
 </section>
 
 <footer>
-    © 2026 CIVALx — All Rights Reserved
+    © 2026 CIV4L ELITE
 </footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h2 id="product"></h2>
+        <p>Join Discord to buy</p>
+        <a href="https://discord.gg/uQDPrbDU3S" class="btn">Go Discord</a>
+        <br><br>
+        <div class="btn" onclick="closeModal()">Close</div>
+    </div>
+</div>
+
+<script>
+function goStore(){
+    document.getElementById("store").scrollIntoView();
+}
+
+function buy(name){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("product").innerText=name;
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+/* SCROLL ANIMATION */
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting){
+            e.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll('.card, .feature').forEach(el=>{
+    observer.observe(el);
+});
+</script>
 
 </body>
 </html>
